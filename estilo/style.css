@@ -490,6 +490,8 @@ main{
 @media only screen and (max-width: 767px){
 
 .button-pesquisar{
+  font-size: large;
+  align-items: center;
   display: flex;
 }
 .rodape {
@@ -673,7 +675,7 @@ main{
 }
 
 .menu-navegacao {
-  width: 140px;
+    width: 140px;
   height: 100px;
   display: flex;
   transform: translateX(-100%);
