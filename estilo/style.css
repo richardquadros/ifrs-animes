@@ -491,9 +491,13 @@ main{
 
 @media only screen and (max-width: 767px){
 
-    body{
-        overflow-x: hidden;
-    }
+html {
+    overflow-x: hidden;
+}
+    
+body {
+    overflow-x: hidden;
+}
 
     .rodape {
         display: flex;
@@ -852,6 +856,12 @@ body.aberto-menu {
 }
 
 @media screen and (min-width: 1025px){
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 .rodape {
   display: flex;
