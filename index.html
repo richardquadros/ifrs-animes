@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="estilo/style.css" />
+  <title>IFRS ANIMES</title>
+</head>
+<body>
+<header>
+  <div class="login-container" id="login-container">
+  <h2 id="login-titulo">Login</h2>
+  
+  <input type="text" id="input-usuario" placeholder="Usuário">
+  
+  <input 
+    type="password" 
+    id="input-senha" 
+    placeholder="Senha"
+  >
+  
+  <button 
+  id="btn-entrar"
+>
+  Entrar
+</button>
+  
+  <div 
+    class="mensagem" 
+    id="mensagem"
+  >
+  </div>
+</div>
+  <div class="fundo-header"></div>
+  <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu de navegação">☰</button>
+    <nav class="menu-navegacao" id="menu" aria-label="Menu de navegação principal">
+      <ul>
+        <li>
+  <a href="#" id="link-conta" aria-label="Área do usuário"> <svg xmlns="http://www.w3.org/2000/svg" class="icon-home" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 12c2.67 0 8 1.34 8 4v2H4v-2c0-2.66 5.33-4 8-4zm0-2a4 4 0 100-8 4 4 0 000 8z"/>
+    </svg>
+    <span id="nome-usuario-display">Conta</span> </a>
+</li>
+        <a href="#sobre" aria-label="Informações sobre o site">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon-home" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" role="img" aria-hidden="true">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3a1.25 1.25 0 110 2.5 A1.25 1.25 0 0112 5zm1 13h-2v-6h2v6z"/>
+            </svg>
+            <span>Sobre</span>
+        </a>
+      </ul>
+    </nav>
+
+    <form class="barra-pesquisa" action="#" role="search" aria-label="Formulário de busca de animes">
+      <div class="caixa-de-texto">
+        <img src="imagens/lovepik-vector-minimalistic-text-box-png-image_401139237_wh1200.png" height="130%" width="auto" alt="" aria-hidden="true">
+      </div>
+
+        <h1>IFRS ANIMES</h1>
+        <div class="button-pesquisar">
+          <input type="text" id="busca" placeholder="Digite o nome do anime" />
+          <button type="submit">Pesquisar</button>
+        </div>
+      </form>
+</header>
+
+<main>
+  <div class="categorias">
+    <aside aria-label="Lista de gêneros de anime">
+      <h2>Gênero</h2>
+      <ul>
+        <li><button>Ação</button></li>
+        <li><button>Animação</button></li>
+        <li><button>Artes Marciais</button></li>
+        <li><button>Aventura</button></li>
+        <li><button>Comédia</button></li>
+        <li><button>Demônios</button></li>
+        <li><button>Documentários</button></li>
+        <li><button>Dorama</button></li>
+        <li><button>Dublado</button></li>
+        <li><button>Escolar</button></li>
+        <li><button>Esporte</button></li>
+        <li><button>Família</button></li>
+        <li><button>Fantasia</button></li>
+        <li><button>Ficção</button></li>
+        <li><button>Guerra</button></li>
+        <li><button>História</button></li>
+        <li><button>Horror</button></li>
+        <li><button>Jogos</button></li>
+        <li><button>Live Action</button></li>
+        <li><button>Magia</button></li>
+        <li><button>Policial</button></li>
+        <li><button>Populares</button></li>
+        <li><button>Shoujo</button></li>
+        <li><button>Shounen</button></li>
+        <li><button>Slice of Life</button></li>
+        <li><button>Sobrenatural</button></li>
+        <li><button>Super Poderes</button></li>
+        <li><button>Suspense</button></li>
+        <li><button>Terror</button></li>        
+      </ul> 
+    </aside>
+  </div>
+
+  <nav class="lista horizontal" aria-label="Filtrar por letras iniciais">
+      <ul>
+        <li><button class="letra-filtro">A</button></li>
+        <li><button class="letra-filtro">B</button></li>
+        <li><button class="letra-filtro">C</button></li>
+        <li><button class="letra-filtro">D</button></li>
+        <li><button class="letra-filtro">E</button></li>
+        <li><button class="letra-filtro">F</button></li>
+        <li><button class="letra-filtro">G</button></li>
+        <li><button class="letra-filtro">H</button></li>
+        <li><button class="letra-filtro">I</button></li>
+        <li><button class="letra-filtro">J</button></li>
+        <li><button class="letra-filtro">K</button></li>
+        <li><button class="letra-filtro">L</button></li>
+        <li><button class="letra-filtro">M</button></li>
+        <li><button class="letra-filtro">N</button></li>
+        <li><button class="letra-filtro">O</button></li>
+        <li><button class="letra-filtro">P</button></li>
+        <li><button class="letra-filtro">Q</button></li>
+        <li><button class="letra-filtro">R</button></li>
+        <li><button class="letra-filtro">S</button></li>
+        <li><button class="letra-filtro">T</button></li>
+        <li><button class="letra-filtro">U</button></li>
+        <li><button class="letra-filtro">V</button></li>
+        <li><button class="letra-filtro">W</button></li>
+        <li><button class="letra-filtro">X</button></li>
+        <li><button class="letra-filtro">Y</button></li>
+        <li><button class="letra-filtro">Z</button></li>
+        <li><button class="letra-filtro">Todos</button></li>
+      </ul>
+  </nav>
+
+<section class="episodios" aria-label="Episódios Recentes">
+    <h2>Episódios Recentes</h2>
+    <div class="grid-episodios">
+
+<article class="episodio" aria-label="Episódio de Death Note" data-genero="Suspense, Mistério, Sobrenatural, Psicológico">
+  <div class="thumbnail" onclick="toggleListaEpisodios('death-note')">
+    <img src="imagens/capa-death-note.png" alt="Capa do anime Death Note" loading="lazy">
+    <div class="play-icon" aria-hidden="true">▶</div>
+  </div>
+  <p>DEATH NOTE</p>
+  <ul id="death-note" class="lista-episodios">
+    <li><a href="#" onclick="playVideo('videos/Death Note - S01E01 - Rebirth.mp4')">Episódio 1</a></li>
+  </ul>
+</article>
+
+<article class="episodio" aria-label="Episódio de Jujutsu Kaisen" data-genero="Ação, Sobrenatural, Aventura, Artes Marciais">
+  <div class="thumbnail">
+    <img src="imagens/capa-jujutsu-kaizen.jpg" alt="Capa do anime Jujutsu Kaisen">
+    <div class="play-icon" aria-hidden="true">▶</div>
+  </div>
+  <p>JUJUTSU KAISEN</p>
+</article>
+
+<article class="episodio" aria-label="Episódio de Naruto Shippuden" data-genero="Ação, Aventura, Artes Marciais, Comédia, Drama">
+  <div class="thumbnail">
+    <img src="imagens/capa-naruto.jpg" alt="Capa do anime Naruto Shippuden" loading="lazy">
+    <div class="play-icon" aria-hidden="true">▶</div>
+  </div>
+  <p>NARUTO SHIPPUDEN</p>
+</article>
+
+<article class="episodio" aria-label="Episódio de Kotaro" data-genero="Comédia, Drama, Slice of Life">
+  <div class="thumbnail">
+    <img src="imagens/capa-kotaro.png" alt="Capa do anime Kotaro" loading="lazy">
+    <div class="play-icon" aria-hidden="true">▶</div>
+  </div>
+  <p>KOTARO</p>
+</article>
+
+<article class="episodio" aria-label="Episódio de Haikyu!!" data-genero="Esporte, Comédia, Drama, Escolar">
+  <div class="thumbnail">
+    <img src="imagens/capa-haikyu.jpg" alt="Capa do anime Haikyu!!" loading="lazy">
+    <div class="play-icon" aria-hidden="true">▶</div>
+  </div>
+  <p>HAIKYU!!</p>
+</article>
+
+<article class="episodio" aria-label="Episódio de Attack on Titan" data-genero="Ação, Drama, Mistério, Fantasia, Terror">
+  <div class="thumbnail">
+    <img src="imagens/capa-attack-on-titan.jpg" alt="Capa do anime Attack on Titan" loading="lazy">
+    <div class="play-icon" aria-hidden="true">▶</div>
+  </div>
+  <p>ATTACK ON TITAN</p>
+</article>
+
+<article class="episodio" aria-label="Episódio de Bleach" data-genero="Ação, Sobrenatural, Aventura, Artes Marciais">
+  <div class="thumbnail">
+    <img src="imagens/capa-bleach.jpg" alt="Capa do anime Bleach" loading="lazy">
+    <div class="play-icon" aria-hidden="true">▶</div>
+  </div>
+  <p>BLEACH</p>
+</article>
+
+<article class="episodio" aria-label="Episódio de Blue Exorcist" data-genero="Ação, Sobrenatural, Escolar, Demônios">
+  <div class="thumbnail">
+    <img src="imagens/capa-blue-exorcist.jpg" alt="Capa do anime Blue Exorcist" loading="lazy">
+    <div class="play-icon" aria-hidden="true">▶</div>
+  </div>
+  <p>BLUE EXORCIST</p>
+</article>
+
+<article class="episodio" aria-label="Episódio de Demon Slayer" data-genero="Ação, Aventura, Sobrenatural, Demônios, Drama">
+  <div class="thumbnail">
+    <img src="imagens/capa-demon-slayer.jpg" alt="Capa do anime Demon Slayer" loading="lazy">
+    <div class="play-icon" aria-hidden="true">▶</div>
+  </div>
+  <p>DEMON SLAYER</p>
+</article>
+
+<article class="episodio" aria-label="Episódio de Fairy Tail" data-genero="Ação, Aventura, Fantasia, Comédia, Magia">
+  <div class="thumbnail">
+    <img src="imagens/capa-fairy-tail.jpg" alt="Capa do anime Fairy Tail" loading="lazy">
+    <div class="play-icon" aria-hidden="true">▶</div>
+  </div>
+  <p>FAIRY TAIL</p>
+</article>
+
+<article class="episodio" aria-label="Episódio de Cowboy Bebop" data-genero="Ação, Ficção Científica, Aventura, Drama">
+  <div class="thumbnail">
+    <img src="imagens/capa-cowboy-bebop.jpg" alt="Capa do anime Cowboy Bebop" loading="lazy">
+    <div class="play-icon" aria-hidden="true">▶</div>
+  </div>
+  <p>COWBOY BEBOP</p>
+</article>
+
+<article class="episodio" aria-label="Episódio de Kimi ni Todoke" data-genero="Romance, Escolar, Slice of Life, Drama">
+  <div class="thumbnail">
+    <img src="imagens/capa-kimi-ni-todoke.jpg" alt="Capa do anime Kimi ni Todoke" loading="lazy">
+    <div class="play-icon" aria-hidden="true">▶</div>
+  </div>
+  <p>KIMI NI TODOKE</p>
+</article>
+
+<article class="episodio" aria-label="Episódio de One Punch Man" data-genero="Ação, Comédia, Super Herói, Ficção Científica">
+  <div class="thumbnail">
+    <img src="imagens/capa-one-punch-man.jpg" alt="Capa do anime One Punch Man" loading="lazy">
+    <div class="play-icon" aria-hidden="true">▶</div>
+  </div>
+  <p>ONE PUNCH MAN</p>
+</article>
+
+<article class="episodio" aria-label="Episódio de Soul Eater" data-genero="Ação, Comédia, Sobrenatural, Escolar, Demônios">
+  <div class="thumbnail">
+    <img src="imagens/capa-soul-eater.jpg" alt="Capa do anime Soul Eater" loading="lazy">
+    <div class="play-icon" aria-hidden="true">▶</div>
+  </div>
+  <p>SOUL EATER</p>
+</article>
+
+<article class="episodio" aria-label="Episódio de The Promised Neverland" data-genero="Suspense, Psicológico, Terror, Mistério, Drama">
+  <div class="thumbnail">
+    <img src="imagens/capa-the-promise-neverland.jpg" alt="Capa do anime The Promised Neverland" loading="lazy">
+    <div class="play-icon" aria-hidden="true">▶</div>
+  </div>
+  <p>THE PROMISED NEVERLAND</p>
+</article>
+
+<article class="episodio" aria-label="Episódio de Tokyo Ghoul" data-genero="Ação, Terror, Sobrenatural, Psicológico, Drama">
+  <div class="thumbnail">
+    <img src="imagens/capa-tokyo-ghoul.jpg" alt="Capa do anime Tokyo Ghoul" loading="lazy">
+    <div class="play-icon" aria-hidden="true">▶</div>
+  </div>
+  <p>TOKYO GHOUL</p>
+</article>
+
+<article class="episodio" aria-label="Episódio de Yuyu Hakusho" data-genero="Ação, Aventura, Sobrenatural, Artes Marciais, Comédia">
+  <div class="thumbnail">
+    <img src="imagens/capa-yuyu-hakusho.jpg" alt="Capa do anime Yuyu Hakusho" loading="lazy">
+    <div class="play-icon" aria-hidden="true">▶</div>
+  </div>
+  <p>YUYU HAKUSHO</p>
+</article>
+
+<article class="episodio" aria-label="Episódio de Parasyte" data-genero="Ação, Terror, Psicológico, Drama, Ficção Científica">
+  <div class="thumbnail">
+    <img src="imagens/capa-parasyte.jpg" alt="Capa do anime Parasyte" loading="lazy">
+    <div class="play-icon" aria-hidden="true">▶</div>
+  </div>
+  <p>PARASYTE</p>
+</article>
+
+<article class="episodio" aria-label="Episódio de Iruma Kun" data-genero="Comédia, Escolar, Fantasia, Demônios">
+  <div class="thumbnail">
+    <img src="imagens/capa-iruma-kun.jpg" alt="Capa do anime Iruma Kun" loading="lazy">
+    <div class="play-icon" aria-hidden="true">▶</div>
+  </div>
+  <p>IRUMA KUN - WELCOME TO DEMON SCHOOL</p>
+</article>
+
+<article class="episodio" aria-label="Episódio de Dorohedoro" data-genero="Ação, Comédia, Fantasia, Terror, Mistério">
+  <div class="thumbnail">
+    <img src="imagens/capa-doro-he-doro.jpg" alt="Capa do anime Dorohedoro" loading="lazy">
+    <div class="play-icon" aria-hidden="true">▶</div>
+  </div>
+  <p>DOROHEDORO</p>
+</article>
+
+  </div>
+</section>
+
+<div id="video-player" class="video-container">
+  <div class="video-wrapper">
+    <video id="anime-video" controls>
+      <source src="" type="video/mp4">
+    </video>
+    <button id="close-video" class="close-btn">×</button>
+  </div>
+</div>
+
+
+<footer class="rodape"> 
+  <div class="overlay">
+    <div class="conteudo-rodape">
+      <div class="coluna esquerda"> 
+        <img src="https://ifrs.edu.br/wp-content/uploads/2022/08/Logo-IFRS-branco-sem-fundo-Vertical.png" alt="Logo da empresa" class="logo-rodape">
+      </div>
+      
+      <div class="coluna centro">
+        <nav class="menu-rodape">
+          <a href="#inicio">Início</a>
+          <a href="#filmes">Filmes</a>
+          <a href="#animes">Animes</a>
+          <a href="#episodios">Episódios</a>
+        </nav>
+      </div>
+      
+      <div class="coluna direita">
+        <div class="redes-sociais">
+          <!-- Facebook -->
+          <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="30" height="30" fill="currentColor">
+              <path d="M279.14 288l14.22-92.66h-88.91V132.1c0-25.35 12.42-50.06 52.24-50.06H293V6.26S259.43 0 225.36 0C141.09 0 89.53 54.42 89.53 153.12v68.22H0v92.66h89.53V512h107.8V288z"/>
+            </svg>
+          </a>
+          
+          <!-- Instagram -->
+          <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30" fill="currentColor">
+              <path d="M349.33,69.33a93.62,93.62,0,0,1,93.34,93.34V349.33a93.62,93.62,0,0,1-93.34,93.34H162.67a93.62,93.62,0,0,1-93.34-93.34V162.67a93.62,93.62,0,0,1,93.34-93.34H349.33m0-37.33H162.67C90.8,32,32,90.8,32,162.67V349.33C32,421.2,90.8,480,162.67,480H349.33C421.2,480,480,421.2,480,349.33V162.67C480,90.8,421.2,32,349.33,32Z"/>
+              <path d="M377.33,162.67a28,28,0,1,1,28-28A27.94,27.94,0,0,1,377.33,162.67Z"/>
+              <path d="M256,181.33A74.67,74.67,0,1,1,181.33,256,74.75,74.75,0,0,1,256,181.33M256,144A112,112,0,1,0,368,256,112,112,0,0,0,256,144Z"/>
+            </svg>
+          </a>
+          
+          <!-- Twitter -->
+          <a href="https://www.twitter.com" target="_blank" aria-label="Twitter">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 512 512">
+              <path d="M459.4 151.7c.3 4.1.3 
+              8.2.3 12.3 0 125.5-95.5 
+              270-270 270-53.8 0-103.9-15.7-146-42.7 
+              7.5.9 15.1 1.2 22.8 1.2 
+              44.8 0 85.9-15.2 118.6-41-42-.9-77.5-28.5-89.7-66.7 
+              5.9.9 11.7 1.5 17.8 1.5 8.6 0 17-1.2 
+              24.9-3.3-44-9-77.2-47.8-77.2-94.3v-1.2c13 
+              7.2 28 11.5 44 12-26-17.4-43.1-47.1-43.1-80.9 
+              0-17.7 4.8-34.3 13.2-48.6 48.1 
+              59.3 119.9 98.2 200.9 102.3-1.6-7.2-2.4-14.8-2.4-22.5 
+              0-54.3 44.1-98.4 98.4-98.4 28.3 
+              0 53.8 11.9 71.7 31.1 22.5-4.1 
+              43.8-12.6 62.7-23.9-7.5 
+              23.4-23.4 43.1-44.3 55.4 
+              20-2.3 39.3-7.7 57.1-15.6-13.2 
+              19.8-29.9 37.3-49.2 51.3z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="creditos-rodape">
+      © 2025 - Projeto desenvolvido por Handreos, Richard e Rodrigo
+    </div>
+  </div>
+  
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
