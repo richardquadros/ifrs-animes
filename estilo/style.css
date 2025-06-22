@@ -136,6 +136,7 @@
 }
 
 .barra-pesquisa input {
+    display: flex;
   max-width: 430px;
   border-radius: 8px;
   background-color: #ffffffde;
@@ -146,6 +147,7 @@
 }
 
 .barra-pesquisa button {
+    display: flex;
   padding: 12px 8px 7px;
   border: 10px;
   border-radius: 5px;
@@ -489,125 +491,125 @@ main{
 
 @media only screen and (max-width: 767px){
 
-.button-pesquisar{
-  display: flex;
-}
-.rodape {
-  display: flex;
-  flex-direction: column;
+    .rodape {
+        display: flex;
+        flex-direction: column;
 }
 
 .rodape::before {
-  display: flex;
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: url(../imagens/background-rodape.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: grayscale(100%);
-  z-index: 0;
-  pointer-events: none; 
+    display: flex;
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url(../imagens/background-rodape.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: grayscale(100%);
+    z-index: 0;
+    pointer-events: none; 
 }
 
 .rodape .overlay {
-  position: relative;
-  z-index: 1;
-  background-color: rgba(0, 0, 0, 0.8);
-  display: flex;
-  flex-direction: column; /* deixa conteúdo e créditos empilhados */
-  justify-content: center;
-  align-items: center;
-  padding: 0px;
-  height: 100%;
-  width: 100%;
-  margin:auto
+    position: relative;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column; /* deixa conteúdo e créditos empilhados */
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    height: 100%;
+    width: 100%;
+    margin:auto
 }
 
 .conteudo-rodape {
-  color: white;
-  display: flex;
-  flex-direction: column; /* linha */
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column; /* linha */
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .coluna {
-  flex: 1;
-  display: flex;
-  align-items: center;
+    flex: 1;
+    display: flex;
+    align-items: center;
 }
 
 .esquerda {
-  justify-content: flex-start;
-  padding-bottom: 20px;
+    justify-content: flex-start;
+    padding-bottom: 20px;
 }
 
 .centro {
-  justify-content: center;
-  padding-bottom: 20px;
+    justify-content: center;
+    padding-bottom: 20px;
 }
 
 .direita {
-  justify-content: flex-end;
-  padding-top: 20px;
+    justify-content: flex-end;
+    padding-top: 20px;
 }
 
 .logo-rodape {
-  width: 120px;
+    width: 120px;
 }
 
 .menu-rodape {
-  gap: 20px;
+    gap: 20px;
 }
 
 .menu-rodape a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 .menu-rodape a:hover {
-  color: #349a46;
+    color: #349a46;
 }
 
 .redes-sociais {
-  display: flex;
-  gap: 15px;
+    display: flex;
+    gap: 15px;
 }
 
 .redes-sociais .icon {
-  width: 30px;
-  height: 30px;
-  color: white;
-  fill: currentColor;
-  transition: color 0.3s ease, transform 0.3s ease;
+    width: 30px;
+    height: 30px;
+    color: white;
+    fill: currentColor;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .redes-sociais a:hover .icon {
-  color: #349a46;
-  transform: scale(1.1);
+    color: #349a46;
+    transform: scale(1.1);
 }
 
 .creditos-rodape {
-  margin-top: 20px;
-  font-size: 0.85rem;
-  color: whitesmoke;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  width: 95%;
-  padding-top: 10px;
-  text-align: center;
+    margin-top: 20px;
+    font-size: 0.85rem;
+    color: whitesmoke;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    width: 95%;
+    padding-top: 10px;
+    text-align: center;
 }
 
 .barra-pesquisa input {
-  font-size: 3vw;
+    font-size: 3vw;
 }
 
+.button-pesquisar{
+  display: flex;
+}
 #login-titulo {
-  font-size: 17px;
+    font-size: 17px;
 }
 
 #login-container {
