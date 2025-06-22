@@ -669,6 +669,8 @@ main{
 }
 
 .menu-navegacao {
+    width: 140px;
+  height: 100px;
   display: flex;
   transform: translateX(-100%);
   top: 15px;
@@ -681,7 +683,7 @@ main{
 .menu-navegacao.aberto {
   transform: translateX(0.0); 
   width: 140px;
-  height: 120px;
+  height: 100px;
 }
   
 .menu-navegacao ul {
