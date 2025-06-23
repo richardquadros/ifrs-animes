@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   width: 100%; /* ocupa toda largura */
-  height: 425px; /* altura fixa do fundo */
+  height: 500px; /* altura fixa do fundo */
   background-image: 
     linear-gradient(to bottom, 
       rgba(0, 0, 0, 0) 50%, /* começa transparente em cima */
@@ -213,6 +213,7 @@ header {
   padding: 10px; /* espaçamento */
 }
 
+
 .menu-navegacao {
   display: flex; /* flex para menu horizontal */
   position: absolute; /* fixo no header */
@@ -232,16 +233,19 @@ header {
 
 /* Aqui fica o conteúdo da página: episódios, vídeos, botões, etc.*/
 body {
-  background-color: #444; /* fundo cinza escuro */
-  background-image: url('/imagens/asfalt--light--1920x1080.png'); /* textura de asfalto */
+  
   background-size: cover; /* cobre todo o fundo */
-  background-repeat: repeat-y; /* repete verticalmente */
+  background-repeat: no-repeat; /* repete verticalmente */
   background-position: center; /* centraliza a textura */
   font-family: sans-serif; /* fonte simples */
   color: #fff; /* texto branco */
   line-height: 1.6; /* espaçamento entre linhas */
+  overflow-x: hidden;
 }
 
+main{
+    background-image: url(/imagens/asfalt--light--1920x1080.png);
+}
 #anime-video {
   width: 100%; /* vídeo ocupa toda largura */
   outline: none; /* tira contorno de foco */
@@ -249,7 +253,7 @@ body {
 
 .episodios {
   width: 100%; /* ocupa largura toda */
-  padding: 10px 0px; /* espaçamento vertical */
+  padding: 2.5px 0px; /* espaçamento vertical */
   color: white; /* texto branco */
   text-align: center; /* centralizado */
 }
@@ -362,7 +366,7 @@ body {
   flex-direction: column; /* em coluna */
   justify-content: center; /* centraliza verticalmente */
   align-items: center; /* centraliza horizontalmente */
-  padding: 30px; /* espaçamento */
+  padding: 40px; /* espaçamento */
   height: 100%; /* ocupa toda altura do rodapé */
 }
 
@@ -427,6 +431,7 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  gap: 0px;
 }
 
 .coluna {
@@ -575,10 +580,14 @@ html, body {
     overflow-x: hidden; /* evita rolagem pro lado */
 }
 
-.barra-pesquisa {
-  gap: 10px; /* espaço entre itens */
+header{
+    height: 450px;
+    padding: 0;
 }
 
+.fundo-header{
+    height: 450px;
+}
 .rodape {
   display: flex;
   flex-direction: column; /* empilha as colunas */
@@ -676,13 +685,18 @@ html, body {
 }
 
 .creditos-rodape {
-  margin-top: 20px;
+  margin-top: 12px;
   font-size: 0.85rem;
   color: whitesmoke;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   width: 95%;
   padding-top: 10px;
   text-align: center;
+}
+
+.barra-pesquisa {
+  top: 23%; /* distância do topo */
+  gap: 34px;
 }
 
 .barra-pesquisa input {
@@ -929,6 +943,7 @@ body.aberto-menu {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
 @media screen and (min-width: 1025px){
