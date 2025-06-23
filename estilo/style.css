@@ -233,7 +233,7 @@ header {
 
 /* Aqui fica o conteúdo da página: episódios, vídeos, botões, etc.*/
 body {
-  
+  background-image: url(../imagens/asfalt--light--1920x1080.png);
   background-size: cover; /* cobre todo o fundo */
   background-repeat: no-repeat; /* repete verticalmente */
   background-position: center; /* centraliza a textura */
@@ -243,9 +243,6 @@ body {
   overflow-x: hidden;
 }
 
-main{
-    background-image: url(../imagens/asfalt--light--1920x1080.png);
-}
 #anime-video {
   width: 100%; /* vídeo ocupa toda largura */
   outline: none; /* tira contorno de foco */
