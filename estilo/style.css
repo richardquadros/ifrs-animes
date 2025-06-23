@@ -244,7 +244,7 @@ body {
 }
 
 main{
-    background-image: url(/imagens/asfalt--light--1920x1080.png);
+    background-image: url(../imagens/asfalt--light--1920x1080.png);
 }
 #anime-video {
   width: 100%; /* vídeo ocupa toda largura */
