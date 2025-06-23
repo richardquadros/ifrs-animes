@@ -1,306 +1,591 @@
-/* === CABEÇALHO ===
-   Aqui começa a parte do topo do site: fundo, header, barra de busca, menu e afins.
-*/
-
+/* Aqui é a parte de cima do site: fundo, header, menu, barra de busca, essas coisas.*/
 .fundo-header {
-  position: absolute;
+  position: absolute; /* fixa no topo da página */
   top: 0;
   left: 0;
-  width: 100%;
-  height: 470px;
-  background-image: url(../imagens/copia.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: -1;
-  filter: grayscale(50%);
+  width: 100%; /* ocupa toda largura */
+  height: 425px; /* altura fixa do fundo */
+  background-image: 
+    linear-gradient(to bottom, 
+      rgba(0, 0, 0, 0) 50%, /* começa transparente em cima */
+      rgba(68, 68, 68, 0.4) 70%, /* vai ficando mais escuro */
+      rgba(68, 68, 68, 0.7) 85%, 
+      #444 100%), /* termina com cor sólida */
+    url(../imagens/copia.jpg); /* imagem de fundo */
+  background-size: cover; /* cobre toda área, sem esticar estranho */
+  background-position: center; /* centraliza a imagem */
+  background-repeat: no-repeat; /* não repete a imagem */
+  z-index: -1; /* fica atrás de tudo */
+  filter: grayscale(50%); /* deixa meio preto e branco */
 }
-.login-container.hidden {
-    display: none;
-}
-#login-container {
-  background-color: white;
-  padding: 6px 10px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  width: 250px;
+
+.fundo-header::after {
+  content: ""; 
   position: absolute;
-  top: 19%;
-  left: 1.5%;
-  z-index: 5;
-  display: none;
-   transition: opacity 0.3s ease, transform 0.3s ease;
-   opacity: 0;
-  transform: translateY(-20px);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 140px; /* altura do degradê */
+  background: linear-gradient(to bottom, transparent, #444); /* degrade escurecendo embaixo */
+  pointer-events: none; /* não interfere em clique */
+  z-index: 1; /* na frente do fundo, mas atrás do conteúdo */
+}
+
+.login-container.hidden {
+  display: none; /* pra esconder o container de login quando precisar */
+}
+
+#login-container {
+  background-color: white; /* fundo branco do formulário */
+  padding: 6px 10px; /* espaço interno */
+  border-radius: 10px; /* cantos arredondados */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* sombra suave pra destacar */
+  width: 250px; /* largura fixa */
+  position: absolute; /* posição fixa na tela */
+  top: 19%; /* distância do topo */
+  left: 1.5%; /* distância da esquerda */
+  z-index: 5; /* na frente de quase tudo */
+  visibility: hidden; /* começa invisível */
+  opacity: 0; /* transparente */
+  pointer-events: none; /* não deixa clicar quando escondido */
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s; /* efeito suave ao aparecer/desaparecer */
+  transform: translateY(-20px); /* começa um pouco pra cima */
 }
 
 #login-container.visible {
-    display: block; /* Mostra o elemento */
-    opacity: 1; /* Torna-o visível */
-    transform: translateY(0); /* Retorna à posição normal */
+  visibility: visible; /* mostra o formulário */
+  opacity: 1; /* deixa visível */
+  pointer-events: auto; /* permite clique */
+  transform: translateY(0); /* volta pra posição normal */
+  transition-delay: 0s; /* sem atraso na transição */
 }
 
 #login-titulo {
-    color: #000;
-  text-align: center;
-  margin-bottom: 5px;
-  font-size: 2vw;
+  color: #000; /* texto preto */
+  text-align: center; /* centralizado */
+  margin-bottom: 5px; /* espaçamento abaixo */
+  font-size: 2vw; /* tamanho responsivo */
 }
 
 #input-usuario,
 #input-senha {
-  width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  width: 100%; /* ocupam toda a largura do container */
+  padding: 10px; /* espaço dentro dos campos */
+  margin: 8px 0; /* espaçamento entre os campos */
+  border: 1px solid #ccc; /* borda cinza clara */
+  border-radius: 5px; /* cantinhos arredondados */
 }
 
 #btn-entrar {
-  width: 100%;
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  width: 100%; /* botão ocupa toda largura */
+  padding: 10px; /* espaço interno */
+  background-color: #007bff; /* azul padrão */
+  color: white; /* texto branco */
+  border: none; /* sem borda */
+  border-radius: 5px; /* cantos arredondados */
+  cursor: pointer; /* cursor de mãozinha */
 }
 
 #btn-entrar:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; /* azul mais escuro quando passa o mouse */
 }
 
 #mensagem {
-    font-size: 13px;
-  text-align: center;
-  margin-top: 10px;
-  color: rgb(0, 0, 0);
+  font-size: 13px; /* texto menor */
+  text-align: center; /* centralizado */
+  margin-top: 10px; /* distância de cima */
+  color: rgb(0, 0, 0); /* texto preto */
 }
+
 .caixa-de-texto {
   position: absolute;
-  top: -30px;
+  top: -30px; /* puxado pra cima */
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0.9;
-  transform: rotate(7deg);
+  z-index: -1; /* atrás dos outros elementos */
+  display: flex; /* usa flexbox para alinhar */
+  justify-content: center; /* centraliza horizontalmente */
+  align-items: center; /* centraliza verticalmente */
+  opacity: 0.9; /* quase opaco */
+  transform: rotate(7deg); /* rotaciona levemente pra dar um efeito descolado */
+}
+
+.caixa-de-texto img {
+  height: 130%; /* imagem maior que o container */
+  width: auto; /* largura automática pra manter proporção */
+  max-width: 100%; /* não ultrapassa o container */
+  display: block; /* evita espaçamento embaixo da imagem */
 }
 
 .menu-navegacao a {
-  display: flex;
-  font-size: 1.1em;
-  padding: 2px;
-  align-items: center;
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-  transition: color 0.4s ease;
+  display: flex; /* flex pra alinhar texto e ícones juntos */
+  font-size: 1.1em; /* tamanho do texto */
+  padding: 2px; /* espaçamento interno */
+  align-items: center; /* alinha verticalmente */
+  text-decoration: none; /* tira o sublinhado */
+  color: black; /* texto preto */
+  font-weight: bold; /* texto em negrito */
+  transition: color 0.4s ease; /* efeito suave para mudança de cor */
 }
 
 .menu-navegacao a:hover {
-  border-radius: 8px;
-  color: #ffffff;
-  background-color: #20ca59;
-  transform: scale(1.0);
-  text-shadow: 0px 1px 2px  #000000, 0 0 10px #000000, 0 0 500px #000000, 0 0 10px #000000;
+  border-radius: 8px; /* cantos arredondados no hover */
+  color: #ffffff; /* texto fica branco */
+  background-color: #20ca59; /* fundo verde */
+  text-shadow: 0px 1px 2px  #000000, 0 0 10px #000000, 0 0 500px #000000, 0 0 10px #000000; /* sombra forte no texto */
 }
 
 .menu-navegacao ul{
-  display: flex;
-  gap: 20px;
-  list-style: none;
-  padding: 0;
-  margin: 0%;
+  display: flex; /* lista horizontal */
+  gap: 20px; /* espaço entre os itens */
+  list-style: none; /* tira os marcadores */
+  padding: 0; /* tira espaçamento padrão */
+  margin: 0%; /* tira margem padrão */
 }
 
 .menu-navegacao li{
-  color: white;
-  font-weight: bold;
+  color: white; /* texto branco */
+  font-weight: bold; /* negrito */
 }
 
 .barra-pesquisa {
-  position: absolute;
-  top: 26%;
+  position: absolute; /* fixa no lugar */
+  top: 26%; /* distância do topo */
   padding: 0px 0px; 
-  flex-direction: column;
+  flex-direction: column; /* itens em coluna */
   justify-content: center;  
   align-items: center;
-  display: flex;
-  width: 100%;
-  gap: 60px;
-  z-index: 1;
+  display: flex; /* flexbox */
+  width: 100%; /* ocupa largura toda */
+  gap: 60px; /* espaço entre itens */
+  z-index: 1; /* na frente de fundos, mas atrás do menu */
 }
 
 .barra-pesquisa input {
-    display: flex;
-  max-width: 430px;
-  border-radius: 8px;
-  background-color: #ffffffde;
-  color: rgb(0, 0, 0);
-  box-sizing: border-box;
-  width: 100%;
-  font-size: 25px;
+  display: flex; /* flex para input */
+  max-width: 430px; /* largura máxima */
+  border-radius: 8px; /* cantos arredondados */
+  background-color: #ffffffde; /* branco com transparência */
+  color: rgb(0, 0, 0); /* texto preto */
+  box-sizing: border-box; /* conta padding na largura */
+  width: 100%; /* ocupa largura toda */
+  font-size: 25px; /* texto grande */
 }
 
 .barra-pesquisa button {
-    display: flex;
+  display: flex;
   padding: 12px 8px 7px;
-  border: 10px;
-  border-radius: 5px;
-  background-color: black;
-  color: whitesmoke;
-  cursor: pointer;
+  border-radius: 5px; /* cantos arredondados */
+  background-color: black; /* fundo preto */
+  color: whitesmoke; /* texto cinza clarinho */
+  cursor: pointer; /* mãozinha no hover */
 }
 
 .barra-pesquisa h1 {
-  font-family: 'death-note';
-  text-align: center;
-  font-size: 5em;
+  font-family: 'death-note'; /* fonte personalizada */
+  text-align: center; /* centralizado */
+  font-size: 5em; /* bem grande */
   color: rgb(0, 0, 0);  
-  text-shadow: -2px -4px 1px  #ffffff, 0 0 10px #ffffff, 0 0 500px #000000, 0 0 10px #000000;
-  text-align: center;
-  -webkit-text-stroke-color: rgb(26, 8, 132);
-  margin: 0; 
+  text-shadow: -2px -4px 1px  #ffffff, 0 0 10px #ffffff, 0 0 500px #000000, 0 0 10px #000000; /* sombra legal no texto */
+  margin: 0; /* sem margem */
+}
+
+.visually-hidden {
+  position: absolute; /* pra esconder acessível */
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 header {
   position: relative;
-  height: 430px; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start; 
-  padding: 10px;
+  height: 430px; /* altura do cabeçalho */
+  display: flex; /* flexbox pra alinhar */
+  flex-direction: column; /* itens em coluna */
+  align-items: center; /* centraliza horizontal */
+  justify-content: flex-start; /* começa do topo */
+  padding: 10px; /* espaçamento */
 }
 
 .menu-navegacao {
-  display: flex;
-  position: absolute;
-  z-index: 3;
-  top: 3px;
-  width: 366px;
-  left: 05px;
-  max-width: 100%;
-  border-radius: 10px; 
-  padding: 15px 20px 15px;
-  background: rgba(255, 255, 255, 0.1); 
-  backdrop-filter: blur(10px);          
-  -webkit-backdrop-filter: blur(20px);  
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  display: flex; /* flex para menu horizontal */
+  position: absolute; /* fixo no header */
+  z-index: 3; /* na frente de alguns elementos */
+  top: 3px; /* colado em cima */
+  width: 366px; /* largura fixa */
+  left: 05px; /* colado na esquerda */
+  max-width: 100%; /* não ultrapassa a tela */
+  border-radius: 10px; /* cantos arredondados */
+  padding: 15px 20px 15px; /* espaçamento interno */
+  background: rgba(255, 255, 255, 0.1); /* branco transparente */
+  backdrop-filter: blur(10px); /* desfoque do fundo atrás */
+  -webkit-backdrop-filter: blur(20px); /* suporte Safari */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* borda leve */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3); /* sombra suave */
 }
 
-/* === CORPO PRINCIPAL ===
-   Agora vem o conteúdo da página: episódios, vídeos, botões etc.
-*/
-
-main{
-  background-color: #ffa600;
+/* Aqui fica o conteúdo da página: episódios, vídeos, botões, etc.*/
+body {
+  background-color: #444; /* fundo cinza escuro */
+  background-image: url('/imagens/asfalt--light--1920x1080.png'); /* textura de asfalto */
+  background-size: cover; /* cobre todo o fundo */
+  background-repeat: repeat-y; /* repete verticalmente */
+  background-position: center; /* centraliza a textura */
+  font-family: sans-serif; /* fonte simples */
+  color: #fff; /* texto branco */
+  line-height: 1.6; /* espaçamento entre linhas */
 }
 
 #anime-video {
-  width: 100%;
-  outline: none;
+  width: 100%; /* vídeo ocupa toda largura */
+  outline: none; /* tira contorno de foco */
 }
 
 .episodios {
-  width: 100%;
-  padding: 10px 0px;
-  color: white; 
-  text-align: center;
+  width: 100%; /* ocupa largura toda */
+  padding: 10px 0px; /* espaçamento vertical */
+  color: white; /* texto branco */
+  text-align: center; /* centralizado */
 }
 
 .grid-episodios {
-  display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(2, 1fr);
-  justify-items: center;
+  display: grid; /* layout em grade */
+  gap: 10px; /* espaço entre os itens */
+  grid-template-columns: repeat(2, 1fr); /* 2 colunas iguais */
+  justify-items: center; /* centraliza os itens na célula */
 }
 
 .episodio {
-  background-color: #333;
-  border-radius: 10px;
-  overflow: hidden;
-  width: 100%;
-  max-width: 300px;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-  position: relative;
+  background-color: #333; /* fundo escuro */
+  border-radius: 10px; /* cantos arredondados */
+  overflow: hidden; /* esconde o que sair do limite */
+  width: 100%; /* ocupa largura total da célula */
+  max-width: 300px; /* mas não passa de 300px */
+  transition: transform 0.3s ease; /* efeito suave pra transformações */
+  cursor: pointer; /* cursor de mãozinha */
+  display: flex; /* flexbox */
+  flex-direction: column; /* itens em coluna */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4); /* sombra forte */
+  position: relative; /* pra poder usar posição absoluta nos filhos */
 }
 
 .thumbnail {
-  position: relative;
+  position: relative; /* posição para os filhos */
   width:100%;
-  height: 45vw;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
+  height: 45vw; /* altura relativa à largura da tela */
+  aspect-ratio: 16 / 9; /* proporção padrão de vídeo */
+  overflow: hidden; /* esconde o que sair do quadro */
 }
 
 .thumbnail img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: opacity 0.3s ease;
+  width: 100%; /* ocupa toda largura */
+  height: 100%; /* ocupa toda altura */
+  object-fit: cover; /* cobre sem distorcer */
+  display: block; /* evita espaçamento embaixo da imagem */
+  transition: opacity 0.3s ease; /* efeito ao mudar opacidade */
 }
 
 .thumbnail::after {
-  content: "";
+  content: ""; /* camada extra */
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.4); /* sombra preta transparente */
+  opacity: 0; /* começa invisível */
+  transition: opacity 0.3s ease; /* efeito suave */
 }
 
 .episodio:hover .thumbnail::after {
-  opacity: 1;
+  opacity: 1; /* sombra aparece quando passar o mouse */
 }
 
 .episodio:hover .play-icon {
-  opacity: 1;
+  opacity: 1; /* mostra o ícone de play no hover */
 }
 
 .episodio p {
-  padding: 2px;
-  font-size: 4vw;
-  color: #ddd;
-  margin: 0;
-  text-align: center;
+  padding: 2px; /* espaçamento interno */
+  font-size: 4vw; /* tamanho responsivo */
+  color: #ddd; /* texto claro */
+  margin: 0; /* sem margem */
+  text-align: center; /* centralizado */
 }
 
 .episodios h2 {
-  font-size: 3.5vw;
-  margin: 10px;
-  background-color: white;
-  color: #222;
-  border-radius: 8px;
-  padding: 10px;
-  display: inline-block;
+  font-size: 3.5vw; /* título grande */
+  margin: 10px; /* espaçamento */
+  background-color: white; /* fundo branco */
+  color: #222; /* texto escuro */
+  border-radius: 8px; /* cantos arredondados */
+  padding: 10px; /* espaçamento interno */
+  display: inline-block; /* tamanho do título só o necessário */
 }
 
-/* === RODAPÉ ===
-   Chegamos ao final da página. Aqui estão os estilos do rodapé e seus elementos.
-*/
+/* Aqui ficam os estilos do final da página, rodapé e conteúdo dele. */
 
 .rodape {
-  width: 100%;
-  position: relative;
-  bottom: 0;
-  margin-top: 0px;
-  color: whitesmoke;
-  height: 400px;
-  overflow: hidden;
+  width: 100%; /* ocupa toda largura */
+  position: relative; /* posição padrão */
+  bottom: 0; /* grudado embaixo */
+  margin-top: 0px; /* sem margem de cima */
+  color: whitesmoke; /* texto claro */
+  height: 400px; /* altura fixa */
+  overflow: hidden; /* esconde o que sair do limite */
+  background-color: #444; /* fundo cinza */
 }
 
 .rodape::before {
+  content: ""; /* camada extra */
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    linear-gradient(to top, rgba(68,68,68,1), rgba(68,68,68,0) 40%), /* degrade escurecendo */
+    url(../imagens/background-rodape.jpg); /* imagem de fundo */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: grayscale(100%); /* preto e branco total */
+  z-index: 0; /* atrás de tudo */
+  pointer-events: none; /* não atrapalha cliques */
+}
+
+.rodape .overlay {
+  position: relative; /* pra ficar em cima do ::before */
+  z-index: 1; /* na frente da imagem */
+  background-color: rgba(0, 0, 0, 0.8); /* fundo preto transparente */
+  display: flex; /* flexbox */
+  flex-direction: column; /* em coluna */
+  justify-content: center; /* centraliza verticalmente */
+  align-items: center; /* centraliza horizontalmente */
+  padding: 30px; /* espaçamento */
+  height: 100%; /* ocupa toda altura do rodapé */
+}
+
+.rodape::after {
+  content: ""; /* camada extra pra degradê */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px; /* altura do degradê */
+  background: linear-gradient(to top, rgba(68,68,68,0), #444); /* degrade do transparente pro cinza */
+  pointer-events: none; /* não interfere em clique */
+  z-index: 1; /* na frente da imagem, atrás do conteúdo */
+}
+
+.creditos-rodape {
+  margin-top: 20px; /* distância pra cima */
+  font-size: 0.85rem; /* texto menor */
+  color: whitesmoke; /* texto clarinho */
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* linha fina no topo */
+  width: 100%;
+  max-width: 1200px; /* largura máxima */
+  padding-top: 10px; /* espaço interno */
+  text-align: center; /* centralizado */
+}
+
+.creditos-imagens {
+  font-size: 0.85rem; /* texto pequeno */
+  color: whitesmoke; /* texto claro */
+  margin-top: 10px; /* espaço acima */
+  text-align: center; /* centralizado */
+  padding: 0 10px; /* espaçamento lateral */
+}
+
+.creditos-imagens a {
+  color: inherit; /* link herda cor do texto */
+  text-decoration: none; /* sem sublinhado */
+  font-weight: bold; /* negrito */
+}
+
+.creditos-imagens a:hover {
+  color: #ccc; /* muda cor no hover */
+  text-decoration: underline; /* sublinha no hover */
+}
+
+/* Aqui tem regras adicionais, media queries, listas, categorias e coisinhas extras.*/
+
+#message {
+  /* Mensagem de erro no login: vermelha, pequena e com espaçamento pra não grudar */
+  margin-top: 10px;
+  color: red;
+  font-size: 12px;
+}
+
+/* === RODAPÉ BONITÃO === */
+
+.conteudo-rodape {
+  /* Essa parte organiza tudo no rodapé em linha (logo, menu, redes) */
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.coluna {
+  /* Cada pedaço do rodapé (esquerda, centro e direita) */
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.esquerda {
+  justify-content: flex-start; /* gruda na esquerda */
+}
+
+.centro {
+  justify-content: center; /* centralizado */
+}
+
+.direita {
+  justify-content: flex-end; /* gruda na direita */
+}
+
+.logo-rodape {
+  width: 120px; /* tamanho da logo do rodapé */
+}
+
+.menu-rodape {
+  display: flex;
+  gap: 30px; /* espaço entre os links do menu */
+}
+
+.menu-rodape a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease; /* efeito suave quando muda a cor */
+}
+
+.menu-rodape a:hover {
+  color: #349a46; /* verde quando passa o mouse */
+}
+
+.redes-sociais {
+  display: flex;
+  gap: 15px; /* espaço entre os ícones */
+}
+
+.redes-sociais .icon {
+  width: 30px;
+  height: 30px;
+  color: white;
+  fill: currentColor;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.redes-sociais a:hover .icon {
+  color: #349a46;
+  transform: scale(1.1); /* dá um zoomzinho no hover */
+}
+
+/* LISTA DE EPISÓDIOS  */
+
+.lista-episodios {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 8px;
+  background-color: #222;
+  border-radius: 6px;
+  max-width: 180px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  text-align: center; 
+  margin: 8px auto 0; 
+  max-height: 0; /* começa fechada */
+  overflow: hidden;
+  opacity: 0; /* invisível por padrão */
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+.lista-episodios li {
+  padding: 8px 0;
+  border-bottom: 1px solid #444;
+}
+
+.lista-episodios li:last-child {
+  border-bottom: none; /* tira a linha do último item */
+}
+
+.lista-episodios.aberto {
+  max-height: 500px; /* quando abre, mostra os itens */
+  opacity: 1;
+}
+
+.lista-episodios li a {
+  color: #f0f0f0;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  width: 100%;
+  padding: 4px 0;
+}
+
+.lista-episodios li a:hover {
+  color: #1db954; /* verde tipo Spotify no hover */
+  cursor: pointer;
+}
+
+/* MODAL DE VÍDEO */
+
+.video-container {
+  display: none; /* começa escondido */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9); /* fundo preto transparente */
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 80%;
+  max-width: 900px;
+}
+
+.close-btn {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: #ff0000;
+  color: white;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer; /* vira mãozinha */
+}
+
+/* Aqui as coisas se adaptam pra telas pequenas tipo celular */
+
+@media only screen and (max-width: 767px){
+
+html, body {
+    overflow-x: hidden; /* evita rolagem pro lado */
+}
+
+.barra-pesquisa {
+  gap: 10px; /* espaço entre itens */
+}
+
+.rodape {
+  display: flex;
+  flex-direction: column; /* empilha as colunas */
+}
+
+.rodape::before {
+  display: flex;
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -313,47 +598,23 @@ main{
   pointer-events: none; 
 }
 
-/* Conteúdo sobre o fundo */
 .rodape .overlay {
   position: relative;
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.8);
   display: flex;
-  flex-direction: column; /* deixa conteúdo e créditos empilhados */
+  flex-direction: column; /* empilha tudo */
   justify-content: center;
   align-items: center;
-  padding: 30px;
+  padding: 0px;
   height: 100%;
-}
-
-.creditos-rodape {
-  margin-top: 20px;
-  font-size: 0.85rem;
-  color: whitesmoke;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
   width: 100%;
-  max-width: 1200px;
-  padding-top: 10px;
-  text-align: center;
-}
-
-/* === OUTROS ESTILOS & AJUSTES ===
-   Essa parte tem regras adicionais, media queries, listas, categorias e coisinhas extras.
-*/
-
-#message {
-  margin-top: 10px;
-  color: red;
-  font-size: 12px;
+  margin:auto;
 }
 
 .conteudo-rodape {
-  color: white;
-  display: flex;
-  flex-direction: row; /* linha */
+  flex-direction: column; /* empilha as colunas */
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
 }
 
 .coluna {
@@ -364,14 +625,17 @@ main{
 
 .esquerda {
   justify-content: flex-start;
+  padding-bottom: 20px;
 }
 
 .centro {
   justify-content: center;
+  padding-bottom: 20px;
 }
 
 .direita {
   justify-content: flex-end;
+  padding-top: 20px;
 }
 
 .logo-rodape {
@@ -379,8 +643,7 @@ main{
 }
 
 .menu-rodape {
-  display: flex;
-  gap: 30px;
+  gap: 20px;
 }
 
 .menu-rodape a {
@@ -412,218 +675,32 @@ main{
   transform: scale(1.1);
 }
 
-.lista-episodios {
-  list-style-type: none;
-  padding-left: 0;
-  margin-top: 8px;
-  background-color: #222;
-  border-radius: 6px;
-  max-width: 180px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
-  text-align: center; 
-  margin: 8px auto 0; 
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.4s ease, opacity 0.4s ease;
-}
-
-.lista-episodios li {
-  padding: 8px 0;
-  border-bottom: 1px solid #444;
-}
-
-.lista-episodios li:last-child {
-  border-bottom: none;
-}
-
-.lista-episodios.aberto {
-  max-height: 500px;
-  opacity: 1;
-}
-
-.lista-episodios li a {
-  color: #f0f0f0;
-  text-decoration: none;
-  font-weight: bold;
-  display: block;
-  width: 100%;
-  padding: 4px 0; 
-}
-
-.lista-episodios li a:hover {
-  color: #1db954;
-  cursor: pointer;
-}
-
-.video-container {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
-  z-index: 1000;
-  justify-content: center;
-  align-items: center;
-}
-
-.video-wrapper {
-  position: relative;
-  width: 80%;
-  max-width: 900px;
-}
-
-.close-btn {
-  position: absolute;
-  top: -40px;
-  right: 0;
-  background: #ff0000;
-  color: white;
-  border: none;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-@media only screen and (max-width: 767px){
-
-html {
-    overflow-x: hidden;
-}
-    
-body {
-    overflow-x: hidden;
-}
-
-    .rodape {
-        display: flex;
-        flex-direction: column;
-}
-
-.rodape::before {
-    display: flex;
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-image: url(../imagens/background-rodape.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    filter: grayscale(100%);
-    z-index: 0;
-    pointer-events: none; 
-}
-
-.rodape .overlay {
-    position: relative;
-    z-index: 1;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    flex-direction: column; /* deixa conteúdo e créditos empilhados */
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-    height: 100%;
-    width: 100%;
-    margin:auto
-}
-
-.conteudo-rodape {
-    color: white;
-    display: flex;
-    flex-direction: column; /* linha */
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.coluna {
-    flex: 1;
-    display: flex;
-    align-items: center;
-}
-
-.esquerda {
-    justify-content: flex-start;
-    padding-bottom: 20px;
-}
-
-.centro {
-    justify-content: center;
-    padding-bottom: 20px;
-}
-
-.direita {
-    justify-content: flex-end;
-    padding-top: 20px;
-}
-
-.logo-rodape {
-    width: 120px;
-}
-
-.menu-rodape {
-    gap: 20px;
-}
-
-.menu-rodape a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.menu-rodape a:hover {
-    color: #349a46;
-}
-
-.redes-sociais {
-    display: flex;
-    gap: 15px;
-}
-
-.redes-sociais .icon {
-    width: 30px;
-    height: 30px;
-    color: white;
-    fill: currentColor;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.redes-sociais a:hover .icon {
-    color: #349a46;
-    transform: scale(1.1);
-}
-
 .creditos-rodape {
-    margin-top: 20px;
-    font-size: 0.85rem;
-    color: whitesmoke;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    width: 95%;
-    padding-top: 10px;
-    text-align: center;
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: whitesmoke;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  width: 95%;
+  padding-top: 10px;
+  text-align: center;
 }
 
 .barra-pesquisa input {
-    font-size: 3vw;
+  font-size: 3vw; /* diminui o tamanho da fonte no celular */
 }
 
-.button-pesquisar{
-  display: flex;
+.button-pesquisar {
+  display: flex; /* só pra garantir que o botão apareça direitinho */
 }
+
 #login-titulo {
-    font-size: 17px;
+  font-size: 17px; /* título do login menor no celular */
 }
 
 #login-container {
   padding: 6px 10px;
   border-radius: 10px;
-  width: 150px;
+  width: 150px; /* mais estreito */
 }
 
 .menu-toggle {
@@ -642,12 +719,11 @@ body {
 .categorias aside {
   width: 100px; 
   padding: 0px;
-  margin-right: cm;
   overflow: hidden;
-  font-size: 75%;
+  font-size: 75%; /* texto menor */
 }
 
-.categorias aside ul li button{
+.categorias aside ul li button {
   font-size: 110%;
 }
 
@@ -659,7 +735,6 @@ body {
   margin: 0;
   justify-content: space-evenly; 
 }
-
 
 .lista.horizontal ul li {
   font-size: 14px;
@@ -683,7 +758,7 @@ body {
 }
 
 .menu-navegacao {
-    width: 140px;
+  width: 140px;
   height: 100px;
   display: flex;
   transform: translateX(-100%);
@@ -739,6 +814,7 @@ body.aberto-menu {
 }}
 
 .categorias h2 {
+  color: #000000;
   border-radius: 5px;
   background-color: white;
   text-align: center;
@@ -761,7 +837,7 @@ body.aberto-menu {
   flex-wrap: wrap;                
   justify-content: center;
   list-style-type: none;
-  display: flex;  /*mudou*/
+  display: flex;  
   overflow-x: auto;
   gap: 8px;
   padding: 10px;
@@ -796,10 +872,10 @@ body.aberto-menu {
 }
 
 .icon-home {
- width: 22px; 
- height: 100%;
- vertical-align: middle;
- margin-right: 8px;
+  width: 22px; 
+  height: 100%;
+  vertical-align: middle;
+  margin-right: 8px;
 }
 
 .casa { 
@@ -1096,7 +1172,7 @@ header {
 .grid-episodios {
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
   justify-items: center;
 }
 
